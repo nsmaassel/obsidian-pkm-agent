@@ -1,6 +1,6 @@
-# 🧠 Obsidian PKM + VS Code Agent Hub
+# 🧠 Obsidian PKM + VS Code Agent Hub — Template
 
-A shareable, git-backed [Obsidian](https://obsidian.md) vault with VS Code Agent Mode as the AI orchestration layer. Clone it, run setup, and you have a fully-wired personal knowledge management system with AI agents that can read/write/search your notes, browse the web, and automate tasks.
+A shareable, git-backed [Obsidian](https://obsidian.md) vault **template** with VS Code Agent Mode as the AI orchestration layer. Create your own private vault from this template, run setup, and you have a fully-wired personal knowledge management system with AI agents that can read/write/search your notes, browse the web, and automate tasks.
 
 > **Two apps, one folder.** This repo is both a VS Code workspace and an Obsidian vault.
 > **VS Code Agent Mode** is the brain — it orchestrates AI tools, MCP servers, web research, and vault automation.
@@ -13,7 +13,7 @@ A shareable, git-backed [Obsidian](https://obsidian.md) vault with VS Code Agent
 
 This is a **template repository**. Click the button below to create your own private copy:
 
-[![Use this template](https://img.shields.io/badge/Use%20this%20template-238636?logo=github&logoColor=white)](https://github.com/nsmaassel/obsidian-pkm-agent/generate)
+[![Use this template](https://img.shields.io/badge/Use%20this%20template-238636?logo=github&logoColor=white)](https://github.com/nsmaassel/obsidian-pkm-template/generate)
 
 1. Click **"Use this template"** → **"Create a new repository"**
 2. Set the owner to your GitHub account
@@ -193,7 +193,7 @@ This repo is designed as a **GitHub template**:
 
 | Repo | Visibility | Contains |
 |------|-----------|----------|
-| `obsidian-pkm-agent` (this template) | **Public** | Setup scripts, config, templates, docs — no personal data |
+| `obsidian-pkm-template` (this repo) | **Public** | Setup scripts, config, templates, docs — no personal data |
 | Your vault (created from template) | **Private** | Everything above + your personal notes, projects, research |
 
 **To share the template with someone:**
@@ -203,7 +203,7 @@ This repo is designed as a **GitHub template**:
 
 **To pull template updates into your vault:**
 ```bash
-git remote add template https://github.com/nsmaassel/obsidian-pkm-agent.git
+git remote add template https://github.com/nsmaassel/obsidian-pkm-template.git
 git fetch template
 git merge template/main --allow-unrelated-histories
 ```
