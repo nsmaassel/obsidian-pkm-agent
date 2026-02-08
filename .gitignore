@@ -1,8 +1,15 @@
-# Obsidian
+# Obsidian — workspace state (user-specific)
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
-.obsidian/plugins/*/data.json
 .obsidian/mcp-search-index.db
+
+# Obsidian plugins — binaries (downloaded by setup script)
+.obsidian/plugins/*/main.js
+.obsidian/plugins/*/styles.css
+.obsidian/plugins/*/data.json
+
+# Keep manifest.json and community-plugins.json committed
+# (they're small config files that define which plugins to use)
 
 # Smart Connections (embeddings cache, regenerable)
 .smart-connections/

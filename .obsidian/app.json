@@ -1,0 +1,10 @@
+{
+  "vaultName": "obsidian-pkm-agent",
+  "livePreview": true,
+  "strictLineBreaks": false,
+  "showFrontmatter": true,
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00-Inbox",
+  "attachmentFolderPath": "_attachments"
+}
