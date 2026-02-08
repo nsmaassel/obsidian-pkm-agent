@@ -13,7 +13,7 @@ A shareable, git-backed [Obsidian](https://obsidian.md) vault with VS Code Agent
 
 This is a **template repository**. Click the button below to create your own private copy:
 
-[![Use this template](https://img.shields.io/badge/Use%20this%20template-238636?logo=github&logoColor=white)](https://github.com/YOUR_USERNAME/obsidian-pkm-agent/generate)
+[![Use this template](https://img.shields.io/badge/Use%20this%20template-238636?logo=github&logoColor=white)](https://github.com/nsmaassel/obsidian-pkm-agent/generate)
 
 1. Click **"Use this template"** → **"Create a new repository"**
 2. Set the owner to your GitHub account
@@ -203,7 +203,7 @@ This repo is designed as a **GitHub template**:
 
 **To pull template updates into your vault:**
 ```bash
-git remote add template https://github.com/YOUR_USERNAME/obsidian-pkm-agent.git
+git remote add template https://github.com/nsmaassel/obsidian-pkm-agent.git
 git fetch template
 git merge template/main --allow-unrelated-histories
 ```
