@@ -1,0 +1,38 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "brave-api-key",
+      "description": "Brave Search API Key (free at https://brave.com/search/api/)",
+      "password": true
+    }
+  ],
+  "servers": {
+    "obsidian": {
+      "command": "uvx",
+      "args": ["obsidian-mcp"],
+      "env": {
+        "OBSIDIAN_VAULT_PATH": "${workspaceFolder}"
+      }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@brave/brave-search-mcp-server"],
+      "env": {
+        "BRAVE_API_KEY": "${input:brave-api-key}"
+      }
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
