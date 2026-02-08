@@ -1,5 +1,5 @@
 ---
-agent: copilot
+agent: agent
 ---
 
 Research the topic described below using `brave_web_search`. For each useful result, optionally use `#fetch` to get full content.

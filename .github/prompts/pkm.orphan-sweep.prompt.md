@@ -1,5 +1,5 @@
 ---
-agent: copilot
+agent: agent
 ---
 
 Run an orphan sweep across the vault:

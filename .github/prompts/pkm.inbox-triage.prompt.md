@@ -1,5 +1,5 @@
 ---
-agent: copilot
+agent: agent
 ---
 
 Triage the Inbox folder:

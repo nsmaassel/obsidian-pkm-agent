@@ -1,5 +1,5 @@
 ---
-agent: copilot
+agent: agent
 ---
 
 Run a full vault maintenance check:
