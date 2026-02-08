@@ -2,7 +2,7 @@
 agent: agent
 ---
 
-Research the topic described below using `brave_web_search`. For each useful result, optionally use `#fetch` to get full content.
+Research the topic described below using web search. For each useful result, optionally use `#fetch` to get full content.
 
 Then create a `resource` note in `30-Resources/` with:
 - Full frontmatter (type: resource, status: active, tags, created, modified, related)

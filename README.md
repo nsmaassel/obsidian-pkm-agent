@@ -42,7 +42,7 @@ The setup script will:
 
 Open **VS Code Agent Mode** (Ctrl/Cmd+Shift+I) and try:
 - `"Create a note about my new project idea"` — creates a note with proper frontmatter and links
-- `"Research best practices for [topic] and save to vault"` — searches the web and creates a resource note
+- `"Research best practices for [topic] and save to vault"` — searches the web, summarizes findings into a vault note
 - `"Are there any orphaned notes?"` — finds disconnected notes
 - `"Triage my inbox"` — reviews `00-Inbox/` and suggests where to file notes
 
@@ -56,7 +56,6 @@ Open **VS Code Agent Mode** (Ctrl/Cmd+Shift+I) and try:
 |--------|-------------|------|
 | **Obsidian** (`obsidian-mcp`) | Read/write/search vault notes — 28 tools | None (filesystem) |
 | **Playwright** (`@playwright/mcp`) | Browser automation — navigate, click, fill, screenshot | None |
-| **Brave Search** (`@brave/brave-search-mcp-server`) | Web search, news, images | API key (free tier) |
 | **GitHub** (remote endpoint) | Issues, PRs, repos, code search | Auto via Copilot |
 | **Context7** (`@upstash/context7-mcp`) | Up-to-date library documentation | Optional API key |
 
@@ -102,9 +101,8 @@ Use these in VS Code Agent Mode:
 | [VS Code](https://code.visualstudio.com) + [GitHub Copilot](https://github.com/features/copilot) | Yes | Copilot subscription required |
 | [Python 3.10+](https://python.org) | Yes | For obsidian-mcp |
 | [uv](https://docs.astral.sh/uv/) | Yes | Setup script installs it |
-| [Node.js 18+](https://nodejs.org) | Yes | For Playwright, Brave Search, Context7 |
+| [Node.js 18+](https://nodejs.org) | Yes | For Playwright, Context7 |
 | [Git](https://git-scm.com) | Yes | For vault version control |
-| [Brave Search API key](https://brave.com/search/api/) | Recommended | Free tier: 2k queries/month |
 
 ---
 
@@ -114,7 +112,7 @@ Use these in VS Code Agent Mode:
 
 The AI agent in VS Code connects to the vault via the `obsidian-mcp` server, which reads and writes files directly on the filesystem — Obsidian doesn't even need to be running for the agent to work.
 
-Your notes stay local. The only external call is Brave Search (when you ask the agent to research something) and GitHub (via your existing Copilot sign-in).
+Your notes stay local. External calls go through GitHub Copilot (your existing sign-in) and any web searches you ask the agent to perform.
 
 ---
 

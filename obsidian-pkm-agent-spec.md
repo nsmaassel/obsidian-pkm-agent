@@ -4,7 +4,7 @@
 
 A shareable, git-backed Obsidian vault with VS Code Agent Mode as the orchestration layer. The repo **is** the vault — clone it, open in VS Code and Obsidian, and you have a fully-wired PKM system with AI agent access to your notes, web search, browser automation, and GitHub.
 
-All MCP servers are pre-configured in `.vscode/mcp.json`. API keys use VS Code's `${input:...}` prompt pattern so each user is prompted on first use — nothing is hardcoded.
+All MCP servers are pre-configured in `.vscode/mcp.json`. No API keys are needed — GitHub auth is automatic via Copilot sign-in.
 
 ---
 
@@ -12,10 +12,10 @@ All MCP servers are pre-configured in `.vscode/mcp.json`. API keys use VS Code's
 
 1. Obsidian vault as the "persistent context layer" for all personal knowledge management.
 2. VS Code Agent Mode as the agent hub — all MCP servers, CLI tools, and LLM interactions orchestrated here.
-3. Agents can read/write/search the vault, browse the web (Playwright), research topics (Brave Search), and pull in knowledge automatically.
+3. Agents can read/write/search the vault, browse the web (Playwright), research topics, and pull in knowledge automatically.
 4. Bidirectional links, frontmatter, and semantic search prevent orphaned/forgotten documents.
 5. Git-backed vault for version control, portability, and easy sharing with collaborators.
-6. Clone-and-go setup — a new user clones the repo, opens it, and everything connects after signing into GitHub and entering their Brave API key.
+6. Clone-and-go setup — a new user clones the repo, opens it, and everything connects after signing into GitHub.
 
 ---
 
@@ -213,20 +213,12 @@ Once connected, the VS Code agent gains these tools:
 
 ## Phase 3: MCP Servers & CLI Tools Configuration
 
-All MCP servers are configured in `.vscode/mcp.json`. API keys use VS Code input prompts — users are asked on first connection.
+All MCP servers are configured in `.vscode/mcp.json`. No API keys are required — GitHub auth is automatic via Copilot sign-in.
 
 ### 3.1 Complete `.vscode/mcp.json`
 
 ```jsonc
 {
-  "inputs": [
-    {
-      "type": "promptString",
-      "id": "brave-api-key",
-      "description": "Brave Search API Key (free at https://brave.com/search/api/)",
-      "password": true
-    }
-  ],
   "servers": {
     "obsidian": {
       "command": "uvx",
@@ -238,13 +230,6 @@ All MCP servers are configured in `.vscode/mcp.json`. API keys use VS Code input
     "playwright": {
       "command": "npx",
       "args": ["@playwright/mcp@latest"]
-    },
-    "brave-search": {
-      "command": "npx",
-      "args": ["-y", "@brave/brave-search-mcp-server"],
-      "env": {
-        "BRAVE_API_KEY": "${input:brave-api-key}"
-      }
     },
     "github": {
       "type": "http",
@@ -264,7 +249,6 @@ All MCP servers are configured in `.vscode/mcp.json`. API keys use VS Code input
 |--------|---------|---------|------|
 | **obsidian** | `obsidian-mcp` (PyPI, v2+) | Read/write/search vault notes via filesystem | None (local filesystem) |
 | **playwright** | `@playwright/mcp` (npm, by Microsoft) | Browser automation — navigate, click, fill forms, screenshot | None |
-| **brave-search** | `@brave/brave-search-mcp-server` (npm) | Web search, news, images, local search | `BRAVE_API_KEY` (free tier: 2k queries/mo) |
 | **github** | Remote MCP endpoint | Issues, PRs, repos, code search, users | OAuth via GitHub Copilot sign-in (automatic) |
 | **context7** | `@upstash/context7-mcp` (npm) | Up-to-date library docs and code examples | Optional `CONTEXT7_API_KEY` for higher rate limits |
 
@@ -343,7 +327,7 @@ After setup, verify these workflows end-to-end:
 
 2. **Search the vault**: Ask: "Find all notes with status: planned." Verify the agent uses `search_by_property` and returns results.
 
-3. **Web research into vault**: Ask: "Research best practices for Zettelkasten note-taking and save a summary to 30-Resources/." Verify the agent uses Brave Search, creates a note with source URLs, and links it.
+3. **Web research into vault**: Ask: "Research best practices for Zettelkasten note-taking and save a summary to 30-Resources/." Verify the agent searches the web, creates a note with source URLs, and links it.
 
 4. **Orphan detection**: Ask: "Are there any orphaned notes in the vault?" Verify the agent calls `find_orphaned_notes` and reports.
 
@@ -359,7 +343,7 @@ After setup, verify these workflows end-to-end:
 - [ ] `.gitignore` covers Obsidian cache, embeddings, and OS files
 - [ ] Obsidian MCP server connects from VS Code (test: "list all notes")
 - [ ] Playwright MCP server connects from VS Code (test: open a URL)
-- [ ] Brave Search returns results (test: search for a topic)
+- [ ] Web search works via built-in Copilot capabilities
 - [ ] GitHub MCP connects via OAuth (test: "list my repos")
 - [ ] Agent can create, read, search, and update vault notes via MCP
 - [ ] Agent can browse the web and save findings to vault
@@ -380,7 +364,7 @@ After setup, verify these workflows end-to-end:
 | `uv` | Python package runner (`pip install uv` or via installer) |
 | Node.js 18+ | For Playwright, Brave Search, and Context7 MCP servers |
 | Git | For vault version control |
-| Brave Search API key | Free at https://brave.com/search/api/ (2k queries/month free tier) |
+
 
 ---
 
@@ -391,7 +375,7 @@ After setup, verify these workflows end-to-end:
 3. **Open in VS Code** — MCP servers are pre-configured in `.vscode/mcp.json`
 4. **Open as Obsidian vault** — Obsidian → "Open folder as vault" → select repo root
 5. **Install Obsidian plugins** (manual): Templater, Dataview, Smart Connections, Obsidian Git, Calendar
-6. **First use**: VS Code will prompt for your Brave Search API key; GitHub auth is automatic via Copilot sign-in
+6. **First use**: GitHub auth is automatic via Copilot sign-in
 7. **Start using**: Open Agent Mode in VS Code and use the PKM prompt commands or ask directly
 
 

@@ -1,12 +1,4 @@
 {
-  "inputs": [
-    {
-      "type": "promptString",
-      "id": "brave-api-key",
-      "description": "Brave Search API Key (free at https://brave.com/search/api/)",
-      "password": true
-    }
-  ],
   "servers": {
     "obsidian": {
       "command": "uvx",
@@ -18,13 +10,6 @@
     "playwright": {
       "command": "npx",
       "args": ["@playwright/mcp@latest"]
-    },
-    "brave-search": {
-      "command": "npx",
-      "args": ["-y", "@brave/brave-search-mcp-server"],
-      "env": {
-        "BRAVE_API_KEY": "${input:brave-api-key}"
-      }
     },
     "github": {
       "type": "http",

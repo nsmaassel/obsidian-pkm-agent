@@ -164,7 +164,6 @@ if (Get-Command uv -ErrorAction SilentlyContinue) {
 if (Get-Command npx -ErrorAction SilentlyContinue) {
     $npmPackages = @(
         "@playwright/mcp@latest",
-        "@brave/brave-search-mcp-server",
         "@upstash/context7-mcp@latest"
     )
     foreach ($pkg in $npmPackages) {
@@ -206,5 +205,5 @@ Write-Host "     (Obsidian → Open folder as vault → select this repo)" -Fore
 Write-Host "  2. In Obsidian: Settings → Community Plugins → Turn on" -ForegroundColor Gray
 Write-Host "  3. The plugins are already downloaded — just enable them" -ForegroundColor Gray
 Write-Host "  4. Open this folder in VS Code and start Agent Mode" -ForegroundColor Gray
-Write-Host "  5. VS Code will prompt for your Brave Search API key on first use" -ForegroundColor Gray
+Write-Host "  5. Open VS Code Agent Mode (Ctrl+Shift+I) and start chatting!" -ForegroundColor Gray
 Write-Host ""

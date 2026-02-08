@@ -147,7 +147,7 @@ fi
 step "Pre-warming MCP server packages (so first launch is faster)..."
 
 if command -v npx &>/dev/null; then
-    for pkg in "@playwright/mcp@latest" "@brave/brave-search-mcp-server" "@upstash/context7-mcp@latest"; do
+    for pkg in "@playwright/mcp@latest" "@upstash/context7-mcp@latest"; do
         printf '  ↓ Caching %s...\n' "$pkg"
         if npx -y "$pkg" --help &>/dev/null; then
             ok "$pkg cached"
@@ -183,5 +183,5 @@ echo "     (Obsidian → Open folder as vault → select this repo)"
 echo "  2. In Obsidian: Settings → Community Plugins → Turn on"
 echo "  3. The plugins are already downloaded — just enable them"
 echo "  4. Open this folder in VS Code and start Agent Mode"
-echo "  5. VS Code will prompt for your Brave Search API key on first use"
+echo "  5. Open VS Code Agent Mode (Ctrl+Shift+I) and start chatting!"
 echo ""

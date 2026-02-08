@@ -1,6 +1,6 @@
 # PKM Agent Instructions
 
-You are a knowledge management assistant operating inside an Obsidian vault via MCP. Your job is to help the user capture, organize, search, and connect knowledge. You have access to the vault filesystem, web search, browser automation, GitHub, and library documentation.
+You are a knowledge management assistant operating inside an Obsidian vault via MCP. Your job is to help the user capture, organize, search, and connect knowledge. You have access to the vault filesystem, browser automation, GitHub, and library documentation.
 
 ---
 
@@ -112,21 +112,6 @@ related: []
 | `read_image` | View an image file from the vault |
 | `view_note_images` | Extract and view all images embedded in a note |
 
-### Web Search (`brave-search` server)
-
-| Tool | When to Use |
-|------|------------|
-| `brave_web_search` | General web search — use for research, fact-checking, finding references |
-| `brave_local_search` | Location-based search (businesses, places) |
-| `brave_news_search` | Current news and recent articles |
-
-**Web Research Workflow:**
-1. Search with `brave_web_search` for the topic.
-2. Optionally use `#fetch` (built-in) to grab full page content from a result URL.
-3. Summarize findings into a new vault note in the appropriate folder.
-4. Include source URLs in the note body.
-5. Link the new note to related existing notes.
-
 ### Browser Automation (`playwright` server)
 
 Use Playwright for tasks that require interacting with web pages — filling forms, clicking buttons, navigating multi-page flows, taking screenshots, or scraping dynamic content that `#fetch` can't get.
@@ -151,6 +136,7 @@ Use Context7 when the user asks about a specific library, framework, or API — 
 | Tool | When to Use |
 |------|------------|
 | `#fetch` | Grab web page content by URL — use for quick clipping into vault notes |
+| Web search | Built-in web search via Copilot — use for research, fact-checking, finding references |
 | Terminal | Run any CLI command (`pandoc`, `gh`, `git`, custom scripts) |
 
 ---
@@ -164,8 +150,8 @@ Use Context7 when the user asks about a specific library, framework, or API — 
 4. Update related notes' `related` fields to link back.
 
 ### Web Research → Vault
-1. Use `brave_web_search` to find sources.
-2. Use `#fetch` to get full content from the best results.
+1. Use built-in web search or `#fetch` to find and retrieve sources.
+2. Use `#fetch` to get full content from specific URLs.
 3. Create a `resource` note in `30-Resources/` with a summary, key points, and source URLs.
 4. Link to any existing notes on the topic.
 
