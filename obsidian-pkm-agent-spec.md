@@ -149,6 +149,7 @@ Install via Obsidian Settings → Community Plugins → Browse:
 | **Smart Connections** | Local embeddings + semantic search + AI-powered note linking suggestions |
 | **Obsidian Git** | Auto-commit and sync vault to git on interval or manually |
 | **Calendar** | Calendar view for daily/meeting notes |
+| **Copilot for Obsidian** | In-vault AI chat sidebar for quick vault Q&A, summarization, and RAG over notes |
 | **Kanban** | Optional: board view for tracking tasks/status |
 
 > **Note**: The "Local REST API" plugin is **not needed**. The `obsidian-mcp` server (v2+) uses direct filesystem access.
@@ -372,10 +373,14 @@ After setup, verify these workflows end-to-end:
 
 1. **Clone** this repo
 2. **Install prerequisites**: Obsidian, VS Code + Copilot, Python 3.10+ with `uv`, Node.js 18+
-3. **Open in VS Code** — MCP servers are pre-configured in `.vscode/mcp.json`
-4. **Open as Obsidian vault** — Obsidian → "Open folder as vault" → select repo root
-5. **Install Obsidian plugins** (manual): Templater, Dataview, Smart Connections, Obsidian Git, Calendar
-6. **First use**: GitHub auth is automatic via Copilot sign-in
-7. **Start using**: Open Agent Mode in VS Code and use the PKM prompt commands or ask directly
+3. **Run the setup script**: `./setup.ps1` (Windows) or `./setup.sh` (macOS/Linux)
+   - This checks prerequisites, downloads Obsidian plugins, configures Templater, and pre-warms MCP server packages
+4. **Open as Obsidian vault**: Obsidian → "Open folder as vault" → select repo root
+5. **Enable plugins**: Settings → Community Plugins → Turn on → enable all downloaded plugins
+6. **Open in VS Code**: MCP servers are pre-configured in `.vscode/mcp.json` and start automatically
+7. **Open Agent Mode**: Press Ctrl/Cmd+Shift+I → approve MCP servers on first launch
+8. **Verify**: Ask the agent `"List all notes in the vault"` to confirm the obsidian-mcp connection
+
+> **Two apps, one folder.** VS Code Agent Mode is the AI orchestration hub (MCP tools, web browsing, automation). Obsidian is the note UI with its own Copilot sidebar for quick vault Q&A. Both point at this repo folder — changes from either side appear instantly in the other.
 
 

@@ -2,6 +2,11 @@
 
 A shareable, git-backed [Obsidian](https://obsidian.md) vault with VS Code Agent Mode as the AI orchestration layer. Clone it, run setup, and you have a fully-wired personal knowledge management system with AI agents that can read/write/search your notes, browse the web, and automate tasks.
 
+> **Two apps, one folder.** This repo is both a VS Code workspace and an Obsidian vault.
+> **VS Code Agent Mode** is the brain — it orchestrates AI tools, MCP servers, web research, and vault automation.
+> **Obsidian** is the UI — it renders your notes beautifully, provides graph view, and has its own AI chat sidebar (Copilot for Obsidian) for quick vault Q&A.
+> Both apps point at the same folder, so changes from either side appear instantly in the other.
+
 ## Quick Start
 
 ### 1. Clone & Open
@@ -36,15 +41,43 @@ The setup script will:
 
 1. Open **Obsidian** → "Open folder as vault" → select this repo folder
 2. Go to **Settings → Community Plugins → Turn on community plugins**
-3. The plugins are already downloaded — they'll appear in the list, just enable them
+3. The plugins are already downloaded — just enable them all in the list
+4. Let **Smart Connections** build its initial embeddings index (takes a minute on first run)
+5. Open **Copilot for Obsidian** sidebar (ribbon icon) — this is your in-vault AI chat for quick questions
 
-### 4. Start Using
+### 4. Open VS Code Agent Mode
 
-Open **VS Code Agent Mode** (Ctrl/Cmd+Shift+I) and try:
-- `"Create a note about my new project idea"` — creates a note with proper frontmatter and links
-- `"Research best practices for [topic] and save to vault"` — searches the web, summarizes findings into a vault note
-- `"Are there any orphaned notes?"` — finds disconnected notes
+1. Open this folder in **VS Code** (or it may already be open from step 1)
+2. Press **Ctrl+Shift+I** (or Cmd+Shift+I on Mac) to open Agent Mode
+3. The MCP servers in `.vscode/mcp.json` start automatically — you'll see them in the chat panel
+4. VS Code may prompt you to approve the MCP servers on first launch — click "Allow"
+
+### 5. Verify Everything Works
+
+Try these in VS Code Agent Mode to confirm the setup:
+
+| Test | What it verifies |
+|------|------------------|
+| `"List all notes in the vault"` | Obsidian MCP server can read the vault |
+| `"Create a test note in 00-Inbox called Hello World"` | Obsidian MCP can write (check it appears in Obsidian too!) |
+| `"Open github.com in the browser"` | Playwright MCP server works |
+| `"What are my GitHub repos?"` | GitHub MCP server + Copilot auth works |
+
+Then flip to **Obsidian** and try the Copilot sidebar:
+- Ask: `"What notes are in the vault?"` — tests vault-aware RAG
+- Ask: `"Summarize the inbox"` — tests note reading
+
+### 6. Start Using
+
+**In VS Code Agent Mode** (the heavy lifter):
+- `"Research best practices for [topic] and save to vault"` — web research → vault note
 - `"Triage my inbox"` — reviews `00-Inbox/` and suggests where to file notes
+- `/pkm.research`, `/pkm.inbox-triage`, `/pkm.maintenance` — reusable prompt commands
+
+**In Obsidian Copilot sidebar** (quick questions while browsing notes):
+- `"Summarize this note"` — quick summaries
+- `"What notes are related to [topic]?"` — vault-aware semantic search
+- `"Find action items across my meeting notes"` — cross-note queries
 
 ---
 
@@ -90,6 +123,7 @@ Use these in VS Code Agent Mode:
 | **Smart Connections** | Semantic search + AI link suggestions |
 | **Obsidian Git** | Auto-commit vault to git |
 | **Calendar** | Calendar view for notes |
+| **Copilot for Obsidian** | In-vault AI chat sidebar for quick vault Q&A, summarization, and RAG over your notes |
 
 ---
 
@@ -110,7 +144,16 @@ Use these in VS Code Agent Mode:
 
 **This repo is both the Obsidian vault and the VS Code workspace.** The vault folders (`00-Inbox/`, `10-Projects/`, etc.) coexist with configuration directories (`.github/`, `.vscode/`, `.specify/`).
 
-The AI agent in VS Code connects to the vault via the `obsidian-mcp` server, which reads and writes files directly on the filesystem — Obsidian doesn't even need to be running for the agent to work.
+### The Two-App Workflow
+
+| | VS Code Agent Mode | Obsidian |
+|---|---|---|
+| **Role** | AI orchestration hub | Note reading & writing UI |
+| **AI chat** | Full agent with MCP tools, web browsing, GitHub | Copilot sidebar for quick vault Q&A |
+| **When to use** | Complex tasks: research, multi-note updates, web scraping, automation | Browsing notes, quick questions, graph view, daily workflows |
+| **Vault access** | Via `obsidian-mcp` server (filesystem) | Direct (it's an Obsidian vault) |
+
+Both apps point at the **same folder**. A note created by the VS Code agent appears instantly in Obsidian, and vice versa. Obsidian doesn't even need to be running for the agent to work.
 
 Your notes stay local. External calls go through GitHub Copilot (your existing sign-in) and any web searches you ask the agent to perform.
 

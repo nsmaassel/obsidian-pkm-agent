@@ -139,6 +139,12 @@ Use Context7 when the user asks about a specific library, framework, or API — 
 | Web search | Built-in web search via Copilot — use for research, fact-checking, finding references |
 | Terminal | Run any CLI command (`pandoc`, `gh`, `git`, custom scripts) |
 
+### Copilot for Obsidian (in-vault companion)
+
+The vault also has the **Copilot for Obsidian** plugin installed. This provides a chat sidebar inside Obsidian for quick vault Q&A, summarization, and RAG over notes. It is **not** an MCP tool — it's an independent Obsidian plugin the user interacts with when browsing notes.
+
+You (the VS Code agent) and Copilot for Obsidian both operate on the same vault folder. You are the heavy-duty orchestrator (MCP tools, web browsing, multi-note automation). Copilot for Obsidian is the lightweight companion for quick questions while the user is reading notes in Obsidian.
+
 ---
 
 ## Workflows

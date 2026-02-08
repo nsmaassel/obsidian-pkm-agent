@@ -89,6 +89,7 @@ declare -A PLUGIN_REPOS=(
     ["smart-connections"]="brianpetro/obsidian-smart-connections"
     ["obsidian-git"]="Vinzent03/obsidian-git"
     ["calendar"]="liamcain/obsidian-calendar-plugin"
+    ["copilot"]="logancyang/obsidian-copilot"
 )
 
 PLUGINS_DIR="$SCRIPT_DIR/.obsidian/plugins"

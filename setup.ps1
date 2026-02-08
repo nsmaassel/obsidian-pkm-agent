@@ -89,7 +89,8 @@ $plugins = @(
     @{ id = "dataview";              repo = "blacksmithgu/obsidian-dataview";          files = @("main.js", "manifest.json", "styles.css") },
     @{ id = "smart-connections";     repo = "brianpetro/obsidian-smart-connections";   files = @("main.js", "manifest.json", "styles.css") },
     @{ id = "obsidian-git";          repo = "Vinzent03/obsidian-git";                  files = @("main.js", "manifest.json", "styles.css") },
-    @{ id = "calendar";             repo = "liamcain/obsidian-calendar-plugin";       files = @("main.js", "manifest.json", "styles.css") }
+    @{ id = "calendar";             repo = "liamcain/obsidian-calendar-plugin";       files = @("main.js", "manifest.json", "styles.css") },
+    @{ id = "copilot";              repo = "logancyang/obsidian-copilot";              files = @("main.js", "manifest.json", "styles.css") }
 )
 
 $pluginsDir = Join-Path $PSScriptRoot ".obsidian" "plugins"
