@@ -99,7 +99,7 @@ for plugin_id in "${!PLUGIN_REPOS[@]}"; do
     plugin_dir="$PLUGINS_DIR/$plugin_id"
     mkdir -p "$plugin_dir"
 
-    if [ -f "$plugin_dir/manifest.json" ]; then
+    if [ -f "$plugin_dir/main.js" ]; then
         ok "$plugin_id already installed"
         continue
     fi
@@ -117,7 +117,7 @@ for plugin_id in "${!PLUGIN_REPOS[@]}"; do
         fi
     done
 
-    if [ -f "$plugin_dir/manifest.json" ]; then
+    if [ -f "$plugin_dir/main.js" ]; then
         ok "$plugin_id installed"
     else
         err "$plugin_id failed to download"

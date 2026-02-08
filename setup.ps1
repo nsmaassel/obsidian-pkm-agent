@@ -101,8 +101,8 @@ foreach ($plugin in $plugins) {
         New-Item -ItemType Directory -Path $pluginDir -Force | Out-Null
     }
 
-    $manifestPath = Join-Path $pluginDir "manifest.json"
-    if (Test-Path $manifestPath) {
+    $mainJsPath = Join-Path $pluginDir "main.js"
+    if (Test-Path $mainJsPath) {
         Write-Ok "$($plugin.id) already installed"
         continue
     }
@@ -121,7 +121,7 @@ foreach ($plugin in $plugins) {
         }
     }
 
-    if (Test-Path $manifestPath) {
+    if (Test-Path $mainJsPath) {
         Write-Ok "$($plugin.id) installed"
     } else {
         Write-Err "$($plugin.id) failed to download"
