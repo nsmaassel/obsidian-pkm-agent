@@ -6,8 +6,6 @@ A shareable, git-backed Obsidian vault with VS Code Agent Mode as the orchestrat
 
 All MCP servers are pre-configured in `.vscode/mcp.json`. API keys use VS Code's `${input:...}` prompt pattern so each user is prompted on first use — nothing is hardcoded.
 
-This spec is designed to be run through Spec Kit for agent-driven implementation.
-
 ---
 
 ## Goals
@@ -396,20 +394,4 @@ After setup, verify these workflows end-to-end:
 6. **First use**: VS Code will prompt for your Brave Search API key; GitHub auth is automatic via Copilot sign-in
 7. **Start using**: Open Agent Mode in VS Code and use the PKM prompt commands or ask directly
 
----
 
-## Notes for Spec Kit Execution
-
-- This spec is designed for sequential phase execution.
-- Phase 1 (vault structure, templates) has no external dependencies — agent creates files directly.
-- Phase 2 (obsidian-mcp) is configured in Phase 3's `mcp.json` — no separate install step needed.
-- Phase 3 (all MCP config) creates `.vscode/mcp.json` — single file, all servers.
-- Phase 4 (agent instructions, prompts) depends on Phases 2-3 for tool references.
-- Phase 5 (git/gitignore) can be done at any point after Phase 1.
-- Phase 6 requires all prior phases and manual Obsidian plugin setup.
-
-Manual steps requiring user interaction:
-- Installing Obsidian and opening the vault
-- Enabling Community Plugins and installing each plugin via Obsidian GUI
-- Configuring Smart Connections embeddings
-- Configuring Obsidian Git plugin with commit interval and remote

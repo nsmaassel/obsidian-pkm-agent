@@ -128,14 +128,6 @@ Your notes stay local. The only external call is Brave Search (when you ask the 
 
 ---
 
-## Spec Kit Integration
-
-This project uses [GitHub Spec Kit](https://github.com/github/spec-kit) for spec-driven development. The full implementation spec is in [obsidian-pkm-agent-spec.md](obsidian-pkm-agent-spec.md).
-
-Available Spec Kit commands: `/speckit.constitution`, `/speckit.specify`, `/speckit.plan`, `/speckit.tasks`, `/speckit.implement`
-
----
-
 ## License
 
 MIT
