@@ -371,16 +371,16 @@ After setup, verify these workflows end-to-end:
 
 ## Getting Started (for collaborators)
 
-1. **Clone** this repo
-2. **Install prerequisites**: Obsidian, VS Code + Copilot, Python 3.10+ with `uv`, Node.js 18+
-3. **Run the setup script**: `./setup.ps1` (Windows) or `./setup.sh` (macOS/Linux)
+1. **Use this template**: Click "Use this template" on GitHub → create a **private** repo
+2. **Clone your private repo** and open in VS Code
+3. **Install prerequisites**: Obsidian, VS Code + Copilot, Python 3.10+ with `uv`, Node.js 18+
+4. **Run the setup script**: `./setup.ps1` (Windows) or `./setup.sh` (macOS/Linux)
    - This checks prerequisites, downloads Obsidian plugins, configures Templater, and pre-warms MCP server packages
-4. **Open as Obsidian vault**: Obsidian → "Open folder as vault" → select repo root
-5. **Enable plugins**: Settings → Community Plugins → Turn on → enable all downloaded plugins
-6. **Open in VS Code**: MCP servers are pre-configured in `.vscode/mcp.json` and start automatically
-7. **Open Agent Mode**: Press Ctrl/Cmd+Shift+I → approve MCP servers on first launch
+5. **Open as Obsidian vault**: Obsidian → "Open folder as vault" → select repo root → "Trust author and enable plugins"
+6. **Connect Copilot for Obsidian**: Settings → Copilot → GitHub Copilot → Setup → complete device auth → add models from your subscription
+7. **Open VS Code Agent Mode**: Press Ctrl/Cmd+Shift+I → approve MCP servers on first launch
 8. **Verify**: Ask the agent `"List all notes in the vault"` to confirm the obsidian-mcp connection
 
-> **Two apps, one folder.** VS Code Agent Mode is the AI orchestration hub (MCP tools, web browsing, automation). Obsidian is the note UI with its own Copilot sidebar for quick vault Q&A. Both point at this repo folder — changes from either side appear instantly in the other.
+> **Template → Private repo.** This repo is a public GitHub template. Each user creates their own private vault from it. Personal notes stay private; template updates can be pulled in via `git remote add template`.
 
 

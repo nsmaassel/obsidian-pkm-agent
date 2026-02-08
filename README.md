@@ -9,15 +9,24 @@ A shareable, git-backed [Obsidian](https://obsidian.md) vault with VS Code Agent
 
 ## Quick Start
 
-### 1. Clone & Open
+### 1. Create Your Private Vault
 
-[![Open in VS Code](https://img.shields.io/badge/Open%20in-VS%20Code-007ACC?logo=visual-studio-code&logoColor=white)](vscode://vscode.git/clone?url=https://github.com/YOUR_USERNAME/obsidian-pkm-agent.git) [![Open in VS Code Insiders](https://img.shields.io/badge/Open%20in-VS%20Code%20Insiders-24bfa5?logo=visual-studio-code&logoColor=white)](vscode-insiders://vscode.git/clone?url=https://github.com/YOUR_USERNAME/obsidian-pkm-agent.git)
+This is a **template repository**. Click the button below to create your own private copy:
 
-Or clone manually:
+[![Use this template](https://img.shields.io/badge/Use%20this%20template-238636?logo=github&logoColor=white)](https://github.com/YOUR_USERNAME/obsidian-pkm-agent/generate)
+
+1. Click **"Use this template"** → **"Create a new repository"**
+2. Set the owner to your GitHub account
+3. Name it whatever you want (e.g., `my-pkm`, `brain`, `vault`)
+4. **Set it to Private** — your notes are personal!
+5. Clone your new private repo:
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/obsidian-pkm-agent.git
-cd obsidian-pkm-agent
+git clone https://github.com/YOU/your-vault-name.git
+cd your-vault-name
 ```
+
+> **Why a template?** The template repo stays public with the scaffolding, setup scripts, and docs. Your private repo gets all of that plus your personal notes — which only you can see.
 
 ### 2. Run Setup
 
@@ -40,19 +49,28 @@ The setup script will:
 ### 3. Open as Obsidian Vault
 
 1. Open **Obsidian** → "Open folder as vault" → select this repo folder
-2. Go to **Settings → Community Plugins → Turn on community plugins**
-3. The plugins are already downloaded — just enable them all in the list
+2. Obsidian will ask **"Do you trust the author?"** → click **"Trust author and enable plugins"**
+3. The plugins are already downloaded and will activate automatically
 4. Let **Smart Connections** build its initial embeddings index (takes a minute on first run)
-5. Open **Copilot for Obsidian** sidebar (ribbon icon) — this is your in-vault AI chat for quick questions
 
-### 4. Open VS Code Agent Mode
+### 4. Connect Copilot for Obsidian
+
+The Copilot plugin gives you an AI chat sidebar inside Obsidian, powered by your GitHub Copilot subscription (no extra API keys):
+
+1. Open **Settings → Community Plugins → Copilot → Settings** (or click the gear icon next to Copilot)
+2. Scroll to **GitHub Copilot** and click **"Setup"**
+3. Go to the GitHub device URL shown and enter the code
+4. Once connected, click **"Add Model"** to add models from your Copilot subscription (e.g., `claude-opus-4.6`, `gpt-4o`)
+5. Open the **Copilot sidebar** (brain icon in the left ribbon) — you're ready to chat with your vault
+
+### 5. Open VS Code Agent Mode
 
 1. Open this folder in **VS Code** (or it may already be open from step 1)
 2. Press **Ctrl+Shift+I** (or Cmd+Shift+I on Mac) to open Agent Mode
 3. The MCP servers in `.vscode/mcp.json` start automatically — you'll see them in the chat panel
 4. VS Code may prompt you to approve the MCP servers on first launch — click "Allow"
 
-### 5. Verify Everything Works
+### 6. Verify Everything Works
 
 Try these in VS Code Agent Mode to confirm the setup:
 
@@ -67,7 +85,7 @@ Then flip to **Obsidian** and try the Copilot sidebar:
 - Ask: `"What notes are in the vault?"` — tests vault-aware RAG
 - Ask: `"Summarize the inbox"` — tests note reading
 
-### 6. Start Using
+### 7. Start Using
 
 **In VS Code Agent Mode** (the heavy lifter):
 - `"Research best practices for [topic] and save to vault"` — web research → vault note
@@ -166,6 +184,29 @@ Your notes stay local. External calls go through GitHub Copilot (your existing s
 - **Add tags**: Use any tags you like — the agent checks `list_tags` to stay consistent
 - **Configure Smart Connections**: Tune the embedding model and settings in Obsidian
 - **Configure Obsidian Git**: Set auto-commit interval in Obsidian plugin settings
+
+---
+
+## Sharing & Privacy
+
+This repo is designed as a **GitHub template**:
+
+| Repo | Visibility | Contains |
+|------|-----------|----------|
+| `obsidian-pkm-agent` (this template) | **Public** | Setup scripts, config, templates, docs — no personal data |
+| Your vault (created from template) | **Private** | Everything above + your personal notes, projects, research |
+
+**To share the template with someone:**
+- Send them the link to this repo
+- They click "Use this template" → create their own private vault
+- They run `setup.ps1`/`setup.sh` → done
+
+**To pull template updates into your vault:**
+```bash
+git remote add template https://github.com/YOUR_USERNAME/obsidian-pkm-agent.git
+git fetch template
+git merge template/main --allow-unrelated-histories
+```
 
 ---
 
