@@ -1,1 +1,8 @@
-["templater-obsidian", "dataview", "smart-connections", "obsidian-git", "calendar", "copilot"]
+[
+  "templater-obsidian",
+  "dataview",
+  "smart-connections",
+  "obsidian-git",
+  "calendar",
+  "copilot"
+]

@@ -13,6 +13,13 @@
 
 # Smart Connections (embeddings cache, regenerable)
 .smart-connections/
+.smart-env/
+
+# Copilot for Obsidian (conversation history, personal)
+copilot/
+
+# Playwright MCP (session data)
+.playwright-mcp/
 
 # OS
 Thumbs.db
