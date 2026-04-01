@@ -1,11 +1,8 @@
 {
   "servers": {
     "obsidian": {
-      "command": "uvx",
-      "args": ["obsidian-mcp"],
-      "env": {
-        "OBSIDIAN_VAULT_PATH": "${workspaceFolder}"
-      }
+      "command": "mcpvault",
+      "args": ["${workspaceFolder}"]
     },
     "playwright": {
       "command": "npx",
